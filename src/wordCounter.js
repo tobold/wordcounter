@@ -14,8 +14,6 @@
           hash[word.toLowerCase()] = 1;
         }
       });
-    },
-    getWordsHash: function() {
       return this._wordsHash;
     }
   };

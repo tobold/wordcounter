@@ -1,17 +1,14 @@
-fileOpener = new FileOpener();
+fileReader = new FileReader();
+fileOpener = new FileOpener(fileReader);
 wordCounter = new WordCounter();
 splitifyer = new Splitifyer();
+wordPrinter = new WordPrinter();
 
 var execute = function() {
   var output = document.getElementById('output');
   var text = fileOpener.text();
   var wordarray = splitifyer.split(text);
-  wordCounter.count(wordarray);
-  var wordhash = wordCounter.getWordsHash();
-  var wordhtml = '';
-  Object.entries(wordhash).forEach(
-    ([word, count]) => (wordhtml += '<tr><td>' + word + '</td><td>' + count + '</td></tr>')
-  );
-  var headerhtml = '<table><tr><th>Word</th><th>Count</th></tr>';
-  output.innerHTML = headerhtml + wordhtml + '</table>';
+  var wordhash = wordCounter.count(wordarray);
+  var html = wordPrinter.print(wordhash);
+  output.innerHTML = html;
 };

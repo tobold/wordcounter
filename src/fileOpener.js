@@ -1,19 +1,18 @@
 (function(exports){
 
-  function FileOpener() {
+  function FileOpener(filereader) {
     this._text = "";
+    this.filereader = filereader;
   }
 
   FileOpener.prototype = {
     load: function(event) {
       var self = this;
-      var input = event.target;
-      var reader = new FileReader();
+      var reader = this.filereader;
       reader.onload = function(){
         self._text = reader.result;
-        execute();
       };
-      reader.readAsText(input.files[0]);
+      reader.readAsText(event.target.files[0]);
     },
     text: function() {
       return this._text;
