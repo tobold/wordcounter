@@ -1,7 +1,7 @@
 (function(exports){
 
   function WordCounter() {
-    this._text = "";
+    
   }
 
   WordCounter.prototype = {
@@ -9,7 +9,7 @@
       var hash = {}
       array.forEach(function(word) {
         if(hash.hasOwnProperty(word)) {
-          hash[word] = hash[word] + 1
+          hash[word] ++
         } else {
           hash[word] = 1;
         }
