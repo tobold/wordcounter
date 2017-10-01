@@ -6,13 +6,13 @@
   }
 
   FileOpener.prototype = {
-    load: function(event) {
+    load: function(file) {
       var self = this;
       var reader = this.filereader;
       reader.onload = function(){
         self._text = reader.result;
       };
-      reader.readAsText(event.target.files[0]);
+      reader.readAsText(file);
     },
     text: function() {
       return this._text;
