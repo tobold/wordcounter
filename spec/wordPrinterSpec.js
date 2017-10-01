@@ -1,6 +1,10 @@
 describe("WordPrinter", function() {
+  var primeCalculator = jasmine.createSpyObj("primeCalculator", {
+    'calculate': ''
+  });
+
   beforeEach(function() {
-    wordPrinter = new WordPrinter();
+    wordPrinter = new WordPrinter(primeCalculator);
   });
 
   describe("#print", function(){

@@ -2,7 +2,8 @@ fileReader = new FileReader();
 fileOpener = new FileOpener(fileReader);
 wordCounter = new WordCounter();
 splitifyer = new Splitifyer();
-wordPrinter = new WordPrinter();
+primeCalculator = new PrimeCalculator();
+wordPrinter = new WordPrinter(primeCalculator);
 
 var execute = function() {
   var output = document.getElementById('output');
