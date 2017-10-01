@@ -8,13 +8,15 @@
     count: function(array) {
       var hash = this._wordsHash;
       array.forEach(function(word) {
-        if(hash.hasOwnProperty(word)) {
-          hash[word] ++;
+        if(hash.hasOwnProperty(word.toLowerCase())) {
+          hash[word.toLowerCase()] ++;
         } else {
-          hash[word] = 1;
+          hash[word.toLowerCase()] = 1;
         }
       });
-      return hash;
+    },
+    getWordsHash: function() {
+      return this._wordsHash;
     }
   };
 
